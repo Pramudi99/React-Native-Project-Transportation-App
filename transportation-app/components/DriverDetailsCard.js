@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   avatar: {
     width: 80,
     height: 80,
-    borderRadius: 40, // Makes the avatar circular
+    borderRadius: 40, 
   },
   name: {
     fontSize: 18,

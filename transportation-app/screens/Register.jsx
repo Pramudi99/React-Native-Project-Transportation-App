@@ -54,12 +54,12 @@ const SignUpScreen = ({ navigation }) => {
         <LottieView
           source={require('../assets/animation/Animation.json')}
           autoPlay
-          style={{ width: 150, height: 150 }} // Adjusted size for consistency
+          style={{ width: 150, height: 150 }} 
         />
       </View>
 
       {/* Register Here text */}
-      <Text style={styles.registerText}>Register with EasyGO</Text>
+      <Text style={styles.registerText}>Register Here</Text>
 
       {/* Input Fields */}
       <TextInput
@@ -71,7 +71,7 @@ const SignUpScreen = ({ navigation }) => {
           setName(text);
           setErrors({ ...errors, name: '' });
         }}
-        placeholderTextColor="#454545"
+        placeholderTextColor="#555555"
       />
       {errors.name && <Text style={styles.errorText}>{errors.name}</Text>}
 
@@ -84,7 +84,7 @@ const SignUpScreen = ({ navigation }) => {
           setEmail(text);
           setErrors({ ...errors, email: '' });
         }}
-        placeholderTextColor="#454545"
+        placeholderTextColor="#555555"
       />
       {errors.email && <Text style={styles.errorText}>{errors.email}</Text>}
 
@@ -97,7 +97,7 @@ const SignUpScreen = ({ navigation }) => {
           setPassword(text);
           setErrors({ ...errors, password: '' });
         }}
-        placeholderTextColor="#454545"
+        placeholderTextColor="#555555"
       />
       {errors.password && <Text style={styles.errorText}>{errors.password}</Text>}
 
@@ -110,7 +110,7 @@ const SignUpScreen = ({ navigation }) => {
           setConfirmPassword(text);
           setErrors({ ...errors, confirmPassword: '' });
         }}
-        placeholderTextColor="#454545"
+        placeholderTextColor="#555555"
       />
       {errors.confirmPassword && (
         <Text style={styles.errorText}>{errors.confirmPassword}</Text>
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderWidth: 1,
     borderColor: '#3399FF',
-    borderRadius: 25,
+    borderRadius: 15,
     paddingHorizontal: 15,
     marginBottom: 5, // Adjusted margin for error message
     fontSize: 16,
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     width: '90%',
     height: 50,
     backgroundColor: '#3399FF',
-    borderRadius: 25,
+    borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
   footerText: {
     marginTop: 15,
     fontSize: 14,
-    color: '#444',
+    color: '#555555',
   },
   signinText: {
     color: '#3399FF',

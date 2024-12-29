@@ -36,13 +36,16 @@ const Login = ({ navigation }) => {
   if (isLoading) {
     return (
       <View style={styles.animationContainer}>
+        <Text style={styles.subtitle}>"Your Journey, Your Safety, Our Driver"</Text>
+        <Text style={styles.title}>EasyGO</Text>
         <LottieView
           source={require('../assets/animation/Animation.json')}
           autoPlay
           loop
           style={{ width: 300, height: 300 }}
         />
-        <View style={{ marginTop: 40 }} /> 
+        <View style={{ marginTop: 40 }} />
+        
         <Pressable style={styles.getStartedButton} onPress={() => navigation.navigate('login')}>
           <Text style={styles.getStartedButtonText}>Get Started</Text>
         </Pressable>
@@ -52,6 +55,9 @@ const Login = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
+     
+      <Text style={styles.subtitle}>"Your Journey, Your Safety, Our Driver"</Text>
+      <Text style={styles.title}>EasyGO</Text>
       <View style={styles.logoContainer}>
         <LottieView
           source={require('../assets/animation/Animation.json')}
@@ -60,12 +66,13 @@ const Login = ({ navigation }) => {
         />
       </View>
 
-      <Text style={styles.title}>Login with EasyGO</Text>
+      {/* <Text style={styles.title}>Login</Text> */}
+   
 
       <TextInput
         style={styles.input}
         placeholder="Username"
-        placeholderTextColor="#454545"
+        placeholderTextColor="#555555"
         value={username}
         onChangeText={(text) => {
           setUsername(text);
@@ -77,7 +84,7 @@ const Login = ({ navigation }) => {
       <TextInput
         style={styles.input}
         placeholder="Password"
-        placeholderTextColor="#454545"
+        placeholderTextColor="#555555"
         secureTextEntry
         value={password}
         onChangeText={(text) => {
@@ -93,7 +100,7 @@ const Login = ({ navigation }) => {
 
       <Pressable onPress={() => navigation.navigate('signup')}>
         <Text>
-          <Text style={[styles.signupText, { color: 'black' }]}>Don't have an account?{' '}</Text>
+          <Text style={[styles.signupText, { color: '#555555' }]}>Don't have an account?{' '}</Text>
           <Text style={[styles.signupText, { color: 'blue' }]}>Register</Text>
         </Text>
       </Pressable>
@@ -113,7 +120,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#3399FF',
     paddingVertical: 15,
     paddingHorizontal: 30,
-    borderRadius: 25,
+    borderRadius: 20,
   },
   getStartedButtonText: {
     color: '#fff',
@@ -131,18 +138,25 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   title: {
-    fontSize: 24,
+    fontSize: 48,
     textAlign: 'center',
-    marginBottom: 20,
+    marginBottom: 10,
     color: '#000000',
     fontWeight: '900',
+  },
+  subtitle: {
+    fontSize: 18,
+    textAlign: 'center',
+    color: '#555555',
+    marginBottom: 20,
+    fontWeight: '500',
   },
   input: {
     borderWidth: 1,
     borderColor: '#3399FF',
     marginBottom: 5,
     padding: 10,
-    borderRadius: 25,
+    borderRadius: 15,
     backgroundColor: '#ffffff',
     fontSize: 16,
     height: 50,
@@ -151,7 +165,7 @@ const styles = StyleSheet.create({
     width: '90%',
     height: 50,
     backgroundColor: '#3399FF',
-    borderRadius: 25,
+    borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
@@ -177,3 +191,4 @@ const styles = StyleSheet.create({
 });
 
 export default Login;
+

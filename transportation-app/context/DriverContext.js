@@ -64,6 +64,8 @@
 
 
 
+
+
 import React, { createContext, useState, useEffect } from 'react';
 
 export const DriverContext = createContext();
@@ -76,7 +78,6 @@ export const DriverProvider = ({ children }) => {
   useEffect(() => {
     const fetchDrivers = async () => {
       try {
-        // Replace this with your own driver data API if needed
         const response = await fetch('https://randomuser.me/api/?results=10');
         const data = await response.json();
 
@@ -86,7 +87,7 @@ export const DriverProvider = ({ children }) => {
           email: driver.email,
           phone: driver.phone,
           address: `${driver.location.street.name}, ${driver.location.city}, ${driver.location.state}, ${driver.location.country}`,
-          carDetails: 'Toyota Corolla 2022', // Example car details
+          carDetails: 'Toyota Corolla 2022', 
           avatar: driver.picture.large, // Avatar image
           reacts: 0,
           hasReacted: false,

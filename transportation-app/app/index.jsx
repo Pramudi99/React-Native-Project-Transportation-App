@@ -4,13 +4,13 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import home from '../screens/home';
 import CardScreen from '../screens/CardScreen';
 import SignUpScreen from '../screens/Register';
-import { DriverProvider } from '../context/DriverContext'; // Use DriverContext
+import { DriverProvider } from '../context/DriverContext'; 
 
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <DriverProvider> {/* Use DriverProvider instead of HospitalProvider */}
+    <DriverProvider>
       <Stack.Navigator initialRouteName="Home">
         {/* Home Screen */}
         <Stack.Screen

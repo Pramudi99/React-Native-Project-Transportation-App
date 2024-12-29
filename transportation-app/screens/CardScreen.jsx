@@ -160,7 +160,7 @@ const CardScreen = ({ route }) => {
         <TextInput
           style={styles.searchBox}
           placeholder="Search for drivers"
-          placeholderTextColor="#999"
+          placeholderTextColor="#555555"
           value={searchQuery}
           onChangeText={(text) => setSearchQuery(text)} // Update state on text input
         />
