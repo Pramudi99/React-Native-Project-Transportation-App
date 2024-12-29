@@ -1,5 +1,3 @@
-# React-Native-Project-Transportation-App
-React native Project
 
 # Welcome to your Expo app 👋
 
