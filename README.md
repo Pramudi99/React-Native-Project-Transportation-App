@@ -54,5 +54,5 @@ Join our community of developers creating universal apps.
 
 ## Clone the Repository:
    bash
-   - git clone 
+   - git clone https://github.com/Pramudi99/React-Native-Project-Transportation-App.git
 
