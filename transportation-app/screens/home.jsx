@@ -1,7 +1,8 @@
 
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
 import LottieView from 'lottie-react-native';
-import { useEffect, useState } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = ({ navigation }) => {
   const [username, setUsername] = useState('');
@@ -16,46 +17,38 @@ const Login = ({ navigation }) => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     let currentErrors = {};
-
+  
     if (!username.trim()) {
       currentErrors.username = 'Username is required.';
     }
     if (!password.trim()) {
       currentErrors.password = 'Password is required.';
     }
-
+  
     setErrors(currentErrors);
-
+  
     if (Object.keys(currentErrors).length === 0) {
-      navigation.navigate('card', { username }); // Pass username to the CardScreen
+      try {
+        const storedUser = await AsyncStorage.getItem('user');
+        const user = JSON.parse(storedUser);
+  
+        // Validate login with name (username) and password
+        if (user && user.name === username && user.password === password) {
+          alert('Login successful!');
+          navigation.navigate('card', { username });
+        } else {
+          alert('Invalid username or password!');
+        }
+      } catch (error) {
+        console.error('Error during login:', error);
+      }
     }
   };
 
-  if (isLoading) {
-    return (
-      <View style={styles.animationContainer}>
-        <Text style={styles.subtitle}>"Your Journey, Your Safety, Our Driver"</Text>
-        <Text style={styles.title}>EasyGO</Text>
-        <LottieView
-          source={require('../assets/animation/Animation.json')}
-          autoPlay
-          loop
-          style={{ width: 300, height: 300 }}
-        />
-        <View style={{ marginTop: 40 }} />
-        
-        <Pressable style={styles.getStartedButton} onPress={() => navigation.navigate('login')}>
-          <Text style={styles.getStartedButtonText}>Get Started</Text>
-        </Pressable>
-      </View>
-    );
-  }
-
   return (
     <View style={styles.container}>
-     
       <Text style={styles.subtitle}>"Your Journey, Your Safety, Our Driver"</Text>
       <Text style={styles.title}>EasyGO</Text>
       <View style={styles.logoContainer}>
@@ -65,9 +58,6 @@ const Login = ({ navigation }) => {
           style={{ width: 150, height: 150 }}
         />
       </View>
-
-      {/* <Text style={styles.title}>Login</Text> */}
-   
 
       <TextInput
         style={styles.input}
@@ -191,4 +181,3 @@ const styles = StyleSheet.create({
 });
 
 export default Login;
-
