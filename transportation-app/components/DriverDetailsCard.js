@@ -13,12 +13,17 @@ const DriverDetailsCard = ({ item, onReact }) => {
       <Text style={styles.detail}>Phone: {item.phone}</Text>
       <Text style={styles.detail}>Address: {item.address}</Text>
       <Text style={styles.detail}>Car: {item.carDetails}</Text>
+      <Image source={item.carImage} style={styles.carImage} />
 
-      {/* Button to Like/Unlike the driver */}
-      <Button
-        title={item.hasReacted ? 'Unlike' : 'Like'}
-        onPress={onReact}
-      />
+      <View style={styles.buttonContainer}>
+      <Text style={styles.reactsText}>Reacts: {item.reacts}</Text>
+
+        <Button
+          title={item.hasReacted ? 'Unlike' : 'Like'}
+          onPress={onReact} // Call the onReact function passed from CardScreen
+        />
+        
+      </View>
     </View>
   );
 };
@@ -41,7 +46,7 @@ const styles = StyleSheet.create({
   avatar: {
     width: 80,
     height: 80,
-    borderRadius: 40, 
+    borderRadius: 40,
   },
   name: {
     fontSize: 18,
@@ -52,10 +57,21 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginBottom: 5,
   },
+  carImage: {
+    width: 100,
+    height: 60,
+    marginTop: 10,
+  },
+  buttonContainer: {
+    marginTop: 15,
+  },
+  reactsText: {
+    fontSize: 14,
+    marginTop: 5,
+    fontWeight: 'bold',
+    color: '#555555',
+  },
+ 
 });
 
 export default DriverDetailsCard;
-
-
-
-

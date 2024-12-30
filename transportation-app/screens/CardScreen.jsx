@@ -28,7 +28,6 @@ const CardScreen = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      {/* Header with greeting */}
       <View style={styles.header}>
         <Text style={styles.greetingText}>Hi, {username}</Text>
         <Text style={styles.totalReactsText}>Total Reacts: {totalReacts}</Text>
@@ -54,7 +53,7 @@ const CardScreen = ({ route }) => {
           renderItem={({ item, index }) => (
             <DriverDetailsCard
               item={item}
-              onReact={() => toggleReact(index)}
+              onReact={() => toggleReact(index)} // Pass the index to toggle the react
             />
           )}
           keyExtractor={(item) => item.id}
@@ -114,7 +113,3 @@ const styles = StyleSheet.create({
 });
 
 export default CardScreen;
-
-
-
-
